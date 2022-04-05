@@ -5,6 +5,9 @@ require("express-async-errors");
 const express = require("express");
 const app = express();
 
+// rest of the packages
+const morgan = require("morgan");
+
 // connect DB
 const connectDB = require("./db/connect");
 
@@ -12,6 +15,7 @@ const connectDB = require("./db/connect");
 const notFoundMW = require("./middleware/not_found");
 const errorHandlerMW = require("./middleware/error-handler");
 
+app.use(morgan("tiny"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
