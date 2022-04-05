@@ -11,6 +11,9 @@ const morgan = require("morgan");
 // connect DB
 const connectDB = require("./db/connect");
 
+// routers
+const authRouter = require("./routes/authRoute");
+
 // middleware
 const notFoundMW = require("./middleware/not_found");
 const errorHandlerMW = require("./middleware/error-handler");
@@ -21,6 +24,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("<h1>Home Page</h1>");
 });
+
+app.use("api/v1/auth", authRouter);
 
 app.use(notFoundMW);
 app.use(errorHandlerMW);
