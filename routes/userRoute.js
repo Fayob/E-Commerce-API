@@ -15,7 +15,9 @@ const {
   deleteUser,
 } = require("../controller/userController");
 
-router.route("/").get(authenticateUser, authorizePermission, getAllUsers);
+router
+  .route("/")
+  .get(authenticateUser, authorizePermission("admin"), getAllUsers);
 router.route("/showMe").get(showCurrentUser);
 router.route("/updateUser").patch(updateUser);
 router.route("/updateUserPassword").patch(updateUserPassword);
