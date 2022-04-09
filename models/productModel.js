@@ -11,12 +11,12 @@ const ProductSchema = new mongoose.Schema(
     },
     price: {
       type: Number,
-      required: true,
+      //   required: true,
       default: 0,
     },
     description: {
       type: String,
-      required: [true, "Please input product price"],
+      required: [true, "Please describe your product"],
       minlength: [50, "Please Input at least 50 characters"],
     },
     image: {
@@ -39,6 +39,7 @@ const ProductSchema = new mongoose.Schema(
     colors: {
       type: [String],
       required: true,
+      default: ["#222"],
     },
     featured: {
       type: Boolean,
