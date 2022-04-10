@@ -30,7 +30,9 @@ const createReview = async (req, res) => {
   res.status(StatusCodes.CREATED).json({ review });
 };
 const getAllReviews = async (req, res) => {
-  res.send("get all Reviews");
+  const reviews = await Review.find({});
+
+  res.status(StatusCodes.OK).json({ reviews, count: reviews.length });
 };
 const getSingleReview = async (req, res) => {
   res.send("get single Review");
