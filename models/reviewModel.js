@@ -19,7 +19,7 @@ const ReviewSchema = new mongoose.Schema(
       required: [true, "Please provide review text or comment"],
     },
     user: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "User",
       required: [true, "User is required"],
     },
