@@ -49,6 +49,7 @@ const login = async (req, res) => {
   attachCookiesToResponse({ res, user: tokenUser });
   res.status(StatusCodes.OK).json({ user: tokenUser });
 };
+
 const logout = async (req, res) => {
   res.cookie("token", " ", {
     httpOnly: true,
