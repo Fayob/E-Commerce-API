@@ -9,7 +9,7 @@ const app = express();
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 
-// const rateLimiter = require("express-rate-limiter");
+const rateLimiter = require("express-rate-limit");
 const helmet = require("helmet");
 const xss = require("xss-clean");
 const cors = require("cors");
@@ -30,12 +30,12 @@ const notFoundMW = require("./middleware/not_found");
 const errorHandlerMW = require("./middleware/error-handler");
 
 app.set("trust proxy", 1);
-// app.use(
-//   rateLimiter({
-//     windowMs: 15 * 60 * 1000,
-//     max: 60,
-//   })
-// );
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000,
+    max: 60,
+  })
+);
 
 app.use(helmet());
 app.use(cors());
