@@ -18,7 +18,7 @@ const getSingleProduct = async (req, res) => {
   const product = await Product.findOne({ _id: productId }).populate("reviews");
 
   if (!product) {
-    throw new CustomError.NotFoundError(`Not Product with id: ${productId}`);
+    throw new CustomError.NotFoundError(`No Product with id: ${productId}`);
   }
   res.status(StatusCodes.OK).json({ product });
 };
@@ -31,7 +31,7 @@ const UpdateProduct = async (req, res) => {
   });
 
   if (!product) {
-    throw new CustomError.NotFoundError(`Not Product with id: ${productId}`);
+    throw new CustomError.NotFoundError(`No Product with id: ${productId}`);
   }
 
   res.status(StatusCodes.OK).json({ product });
