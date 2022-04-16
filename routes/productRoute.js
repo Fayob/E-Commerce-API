@@ -24,8 +24,7 @@ router
 
 router
   .route("/uploadImage")
-  // .post([authenticateUser, authorizePermission("admin")], uploadImage);
-  .post(uploadImage);
+  .post([authenticateUser, authorizePermission("admin")], uploadImage);
 
 router
   .route("/:id")
